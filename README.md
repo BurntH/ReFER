@@ -5,6 +5,7 @@ You can try out the 'read from file' and 'convert MaGIC algebras' features with 
 The program only reads stuff in ugly format.
 
 Frame input format:
+
     - frame name
     - one character (number or letter) for each point in the frame (K)
     - one character for each normal point (N)
