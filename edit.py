@@ -125,11 +125,19 @@ def inspect():
     print()
     print("Enter one of the following commands:")
     print("\t-f: Check frame conditions")
+    print("\t-4: Print all the quadruples (a, b, c, d) with Rabcd")
+    print("\t(): Print all the quadruples (a, b, c, d) with Ra(bc)d")
     print("\t-E: Exit inspect mode")
     choice = input()
     if choice == "-E": return None
     if choice == "-f":
         frame_conditions()
+        input("Type anything to continue.")
+    if choice == "-4":
+        print_R4()
+        input("Type anything to continue.")
+    if choice == "()":
+        print_R4p()
         input("Type anything to continue.")
     return inspect()
 
@@ -185,7 +193,39 @@ def frame_conditions():
     
     return None
     
+def print_R4():
+    F = data.F[data.Selected]
+    out = []
+    count = 0
+    for a in F.K:
+        for b in F.K:
+            for c in F.K:
+                for d in F.K:
+                    if F.R4(a, b, c, d): 
+                        out.append("R{0}{1}{2}{3}".format(a, b, c, d))
+                        count += 1
+    print("The relation Rabcd holds for {0} out of {1} quadruples:".format(count, (F.size)**4))
+    print(", ".join(out))
+    print()
+    return None
+
+def print_R4p():
+    F = data.F[data.Selected]
+    out = []
+    count = 0
+    for a in F.K:
+        for b in F.K:
+            for c in F.K:
+                for d in F.K:
+                    if F.R4p(a, b, c, d): 
+                        out.append("R{0}({1}{2}){3}".format(a, b, c, d))
+                        count += 1
+    print("The relation Ra(bc)d holds for {0} out of {1} quadruples:".format(count, (F.size)**4))
+    print(", ".join(out))
+    print()
+    return None
     
-    
+
+
     
     
