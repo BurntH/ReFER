@@ -27,7 +27,7 @@ class frame:
         
     def R4(self, a, b, c, d):
         for x in self.K:
-            if self.R(a, b, x) and self.R(c, d, x):
+            if self.R(a, b, x) and self.R(x, c, d):
                 return True
         return False
     
