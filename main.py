@@ -100,7 +100,7 @@ def menu():
                 data.Sel = False
                 return menu()
             else: 
-                quit()
+                return None
                 
         else: return menu()
                
